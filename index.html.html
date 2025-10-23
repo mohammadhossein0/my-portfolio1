@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>mohammadhossein matoori personal</title>
+  <meta name="description" content="رزومه و نمونه‌کارهای نام شما — توسعه‌دهنده / طراح / رشته شما" />
+  <meta name="author" content="mohammad hossein matoori" />
+  <!-- Favicon (اختیاری) -->
+  <link rel="icon" href="favicon.ico" />
+  <!-- Google Fonts (اختیاری) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1230;
+      --muted:#9aa4c0;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:1100px;
+      --gap:18px;
+      --text:#e6eef8;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071027,#08122b 40%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+      box-sizing:border-box;
+    }
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+      background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.02));
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: 0 6px 22px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      position:sticky;
+      top:32px;
+      height:fit-content;
+    }
+    .avatar{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      margin-bottom:12px;
+    }
+    .avatar img{
+      width:140px;
+      height:140px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid rgba(255,255,255,0.04);
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+    h1{
+      font-size:20px;
+      margin:8px 0 4px;
+      text-align:center;
+    }
+    .title-sub{
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      margin-bottom:12px;
+    }
+    .sidebar p{
+      margin:8px 0 12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:8px;
+      background:linear-gradient(90deg,var(--accent), #4fd7a1);
+      color:#052224;
+      font-weight:600;
+      box-shadow: 0 6px 18px rgba(110,231,183,0.12);
+      text-align:center;
+    }
+    .links{
+      margin-top:14px;
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .links a{color:var(--muted); font-size:14px; text-decoration:none;}
+
+    /* MAIN */
+    main{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 6px 22px rgba(2,6,23,0.6);
+    }
+    .section{
+      margin-bottom:20px;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:18px;
+      border-bottom:1px dashed rgba(255,255,255,0.03);
+      padding-bottom:10px;
+      color:var(--text);
+    }
+    .about p{color:var(--muted); margin:0}
+    /* Resume */
+    .resume-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .card{
+      background:rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:10px;
+      color:var(--muted);
+    }
+    .job h3{margin:0;font-size:15px;color:var(--text)}
+    .job .meta{font-size:13px;color:var(--muted);margin-bottom:6px}
+    .skill{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      margin:8px 0;
+    }
+    .skill .bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;flex:1;margin-right:10px;overflow:hidden}
+    .skill .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#4fd7a1)}
+    .skill small{width:36px;text-align:left;color:var(--muted);font-size:13px}
+
+    /* Portfolio */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:12px;
+    }
+    .project{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:10px;
+      padding:10px;
+      cursor:pointer;
+      transition:transform .14s ease, box-shadow .14s ease;
+    }
+    .project:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .project img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+    .project h4{margin:0;font-size:15px}
+    .project p{font-size:13px;color:var(--muted);margin:6px 0 0}
+
+    /* modal */
+    .modal-backdrop{
+      position:fixed;left:0;top:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;
+      background:rgba(2,6,23,0.6);z-index:999;
+    }
+    .modal{
+      width:90%;
+      max-width:820px;
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+    }
+    .modal img{width:100%;height:320px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .modal .close{
+      float:left;background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer;
+    }
+
+    /* contact */
+    .contact form{display:grid;gap:8px}
+    .contact input, .contact textarea{
+      padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);
+    }
+    .contact button{padding:10px;border-radius:8px;border:0;background:var(--accent);color:#052224;font-weight:600;cursor:pointer}
+
+    /* footer */
+    footer{margin-top:8px;text-align:center;color:var(--muted);font-size:13px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.02)}
+
+    /* responsive */
+    @media (max-width:980px){
+      .container{grid-template-columns:1fr; padding-bottom:40px}
+      .sidebar{position:relative;top:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="پروفایل">
+      <div class="avatar">
+        <!-- جایگزین کن: avatar.jpg -->
+        <img src="avatar.jpg" alt="عکس پروفایل نام شما" />
+      </div>
+      <h1>محمد حسین مطوری</h1>
+      <div class="title-sub">.. توسعه‌دهنده وب ..</div>
+      <p></p>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px">
+        <a class="btn" href="resume.pdf" download>دانلود رزومه</a>
+      </div>
+
+      <div class="links" aria-hidden="false" style="margin-top:16px">
+        <a href="https://github.com/mohammadhossein0" target="_blank" rel="noopener">گیت‌هاب</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">لینکداین</a>
+        <a href="mohamadmatoori8585@gmail.com">ایمیل</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <!-- ABOUT -->
+      <section class="section about" id="about">
+        <h2>درباره من</h2>
+        <p>سلام! من <strong>محمد حسین مطوری</strong> هستم — توسعه‌دهندهٔ فرانت‌اند با تمرکز روی تجربهٔ کاربری و ساخت رابط‌های سریع و دسترس‌پذیر. در پروژه‌ها از html، css، python و فریم‌ورک‌های مدرن استفاده می‌کنم و به توسعهٔ رابط‌های واکنش‌گرا علاقه‌مندم.</p>
+      </section>
+
+      <!-- RESUME -->
+      <section class="section resume" id="resume">
+        <h2>رزومه</h2>
+        <div class="resume-grid">
+          <div class="card">
+            <h3>راه های ارتباطی</h3>
+            <div class="job" style="margin-top:8px">
+              <h3>telegram</h3>
+              <a href="https://t.me/mohammadhosseinmatoori">@mohammadhosseinmatoori</a>
+              
+            </div>
+
+            <div class="job" style="margin-top:12px">
+              <h3>whatsapp</h3>
+              <a href="https://wa.me/09168212151">09168212151</a>
+           
+            </div>
+
+             <div class="job" style="margin-top:12px">
+              <h3>instagram</h3>
+              <a href="https://instagram.com/mamadhossein0">mamadhossein</a>
+           
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>تحصیلات & مهارت‌ها</h3>
+            <p style="margin:6px 0 12px;color:var(--muted)">(کارشناسی مهندسی کامپیوتر — دانشگاه آزاد ماهشهر)</p>
+
+            <div>
+              <div class="skill">
+                <span>HTML/CSS</span>
+                <div class="bar" aria-hidden="true"><i style="width:95%"></i></div>
+                <small>95%</small>
+              </div>
+
+              <div class="skill">
+                <span>python</span>
+                <div class="bar" aria-hidden="true"><i style="width:80%"></i></div>
+                <small>90%</small>
+              </div>
+
+              <div class="skill">
+                <span>UI/UX</span>
+                <div class="bar" aria-hidden="true"><i style="width:75%"></i></div>
+                <small>75%</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section projects-section" id="projects">
+        <h2>نمونه‌کارها</h2>
+        <div class="projects" aria-live="polite">
+          <!-- پروژه‌ها را تکمیل یا تکرار کن -->
+          <div class="project" tabindex="0" data-title="پروژه پنل مدیریت" data-desc="یک پنل مدیریتی برای مانیتورینگ داده‌ها، با نمودارها و فیلترهای پیشرفته." data-img="project1.jpg">
+            <img src="project1.jpg" alt="تصویر پروژه پنل مدیریت">
+            <h4>پنل مدیریت</h4>
+            <p>React · Chart.js · REST API</p>
+          </div>
+
+          <div class="project" tabindex="0" data-title="نمونه‌کار فروشگاه" data-desc="صفحه محصول با تجربهٔ خرید ساده، سبد خرید و پرداخت." data-img="project2.jpg">
+            <img src="project2.jpg" alt="تصویر پروژه فروشگاه">
+            <h4>فروشگاه آنلاین</h4>
+            <p>Next.js · Stripe · Headless CMS</p>
+          </div>
+
+          <div class="project" tabindex="0" data-title="وب‌سایت شرکتی" data-desc="وب‌سایت معرفی شرکت با بخش مقالات و سیستم SEO" data-img="project3.jpg">
+            <img src="project3.jpg" alt="تصویر وب‌سایت شرکتی">
+            <h4>وب‌سایت شرکت</h4>
+            <p>Gatsby · CMS · SEO</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section contact" id="contact">
+        <h2>تماس</h2>
+        <p class="card" style="margin-bottom:12px;color:var(--muted)">اگر مایل به همکاری یا گفتگو هستید، پیامی بفرستید یا رزومه‌ام را دانلود کنید.</p>
+
+        <div class="card">
+          <!-- این فرم ساده از mailto استفاده می‌کند. برای فرم واقعی به backend نیاز داری -->
+          <form action="mohamadmatoori8585@gmail.com" method="get" enctype="text/plain">
+            <input type="text" name="subject" placeholder="موضوع" required />
+            <input type="email" name="email" placeholder="ایمیل شما" required />
+            <textarea name="message" rows="4" placeholder="پیام شما..." required></textarea>
+            <div style="display:flex;gap:8px;justify-content:flex-start;margin-top:8px">
+              <button type="submit">ارسال ایمیل</button>
+              <a class="btn" href="resume.pdf" download>دانلود رزومه</a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> mohammadhossein  — ساخته‌شده با ❤️
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal" role="document">
+      <button class="close" id="closeModal" aria-label="بستن">✕</button>
+      <h3 id="modalTitle">عنوان پروژه</h3>
+      <img id="modalImg" src="" alt="">
+      <p id="modalDesc" style="color:var(--muted)"></p>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <a id="modalDemo" class="btn" href="#" target="_blank" rel="noopener">مشاهده دموی زنده</a>
+        <a id="modalRepo" class="links" href="#" target="_blank" rel="noopener" style="align-self:center;color:var(--muted)">کد در گیت‌هاب</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // سال در footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal برای پروژه‌ها
+    const projects = document.querySelectorAll('.project');
+    const modal = document.getElementById('modalBackdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalDemo = document.getElementById('modalDemo');
+    const modalRepo = document.getElementById('modalRepo');
+    const closeModal = document.getElementById('closeModal');
+
+    projects.forEach(p => {
+      p.addEventListener('click', openProject);
+      p.addEventListener('keypress', (e)=>{ if(e.key==='Enter') openProject.call(p) });
+    });
+
+    function openProject(){
+      const title = this.dataset.title || 'پروژه';
+      const desc = this.dataset.desc || '';
+      const img = this.dataset.img || 'placeholder.png';
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalImg.src = img;
+      modalImg.alt = title;
+      // اگر دمو/ریپو داری، مقدار دهی کن؛ در غیر این صورت لینک‌های خالی بمونن
+      modalDemo.href = this.dataset.demo || '#';
+      modalRepo.href = this.dataset.repo || '#';
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    closeModal.addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; });
+
+    // بستن با ESC
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; } });
+
+  </script>
+</body>
+</html>
